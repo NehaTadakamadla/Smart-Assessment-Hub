@@ -1,1 +1,27 @@
+version: "3.8"
+
+services:
+  tomcat:
+    image: nehatadakamadla16/smart-assessment-hub
+    container_name: smart_tomcat
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: smart_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: smart_assessment
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
 
