@@ -24,7 +24,7 @@ pipeline {
             steps {
                 deploy adapters: [
                     tomcat9(credentialsId: '6b09b412-3364-49ce-969e-56d1f9f582a4',  // Create this credential in Jenkins (see below)
-                            url: 'http://localhost:8080/')
+                            url: 'http://localhost:8000/')
                 ],
                 contextPath: '/sah',  // Your app's context path
                 onFailure: false,  // Don't fail build on deploy error
