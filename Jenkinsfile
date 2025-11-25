@@ -1,6 +1,10 @@
 pipeline {
     agent any  // Runs on any available agent (your Windows machine)
 
+    tools {
+        maven 'Maven3'   // MUST match the name in Jenkins Maven installations
+    }
+    
     stages {
         stage('Clone Repository') {
             steps {
