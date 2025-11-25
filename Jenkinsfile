@@ -33,12 +33,30 @@ pipeline {
         }
     }
     
+    // post {
+    //     success {
+    //         echo 'Deployment successful! App ready at http://localhost:8080/sah'
+    //     }
+    //     failure {
+    //         echo 'Build/Deploy failed - check logs'
+    //     }
+    // }
+
     post {
         success {
-            echo 'Deployment successful! App ready at http://localhost:8080/sah'
+            emailext(
+                subject: "SUCCESS - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "Build passed successfully.",
+                to: "${env.mail_recipient}"
+            )
         }
         failure {
-            echo 'Build/Deploy failed - check logs'
+            emailext(
+                subject: "FAILURE - ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "Build failed.",
+                to: "${env.mail_recipient}"
+            )
         }
     }
+
 }
