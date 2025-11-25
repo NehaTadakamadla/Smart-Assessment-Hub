@@ -2,7 +2,7 @@ pipeline {
     agent any  // Runs on any available agent (your Windows machine)
 
     tools {
-        maven 'Maven3'   // MUST match the name in Jenkins Maven installations
+        maven 'MAVEN_HOME'   // MUST match the name in Jenkins Maven installations
     }
     
     stages {
