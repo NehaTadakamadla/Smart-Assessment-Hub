@@ -58,3 +58,37 @@ pipeline {
     }
 
 }
+
+
+
+// pipeline {
+// agent any  // Agent: Defines the machine (or slave) that runs the tasks 
+//    tools{
+//         maven 'MAVEN_HOME'
+//     }
+//     stages {         //The script is divided into stages, each representing a specific step, like building,
+//         stage('git repo & clean') {
+//             steps {
+//                 deleteDir()  // deletes entire workspace safely
+//                 //bat "rmdir  /s /q mavenjava"
+//                 bat "git clone https://github.com/NehaTadakamadla/Smart-Assessment-Hub.git"
+//                 bat "mvn clean -f Smart-Assessment-Hub"
+//             }
+//         }
+//         stage('install') {
+//             steps {
+//                 bat "mvn install -f Smart-Assessment-Hub"
+//             }
+//         }
+//         stage('test') {
+//             steps {
+//                 bat "mvn test -f Smart-Assessment-Hub"
+//             }
+//         }
+//         stage('package') {
+//             steps {
+//                 bat "mvn package -f Smart-Assessment-Hub"
+//             }
+//         }
+//     }
+// }
